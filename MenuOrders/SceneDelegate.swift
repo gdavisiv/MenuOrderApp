@@ -20,10 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Get the managed object context from the shared persistent container.
+        //This function retrieves the managed object context for us. A managed object
+        //context is like an in-memory scratchpad. It’s the place where objects are created,
+        //fetched, updated, deleted, and saved back to the persistent store of the device
+        //where the app runs on.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        //This line initializes the ContentView which is then set as the root view in the lines below.
         let contentView = ContentView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.

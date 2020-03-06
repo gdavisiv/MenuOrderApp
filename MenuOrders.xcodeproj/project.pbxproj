@@ -14,6 +14,8 @@
 		4158272C2412DA5800F4194C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4158272B2412DA5800F4194C /* Assets.xcassets */; };
 		4158272F2412DA5800F4194C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4158272E2412DA5800F4194C /* Preview Assets.xcassets */; };
 		415827322412DA5800F4194C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415827302412DA5800F4194C /* LaunchScreen.storyboard */; };
+		4158273B2412E0C600F4194C /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415827392412E0C600F4194C /* Order+CoreDataClass.swift */; };
+		4158273C2412E0C600F4194C /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158273A2412E0C600F4194C /* Order+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		4158272E2412DA5800F4194C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		415827312412DA5800F4194C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		415827332412DA5800F4194C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		415827392412E0C600F4194C /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4158273A2412E0C600F4194C /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,8 @@
 		415827162412DA5700F4194C = {
 			isa = PBXGroup;
 			children = (
+				415827392412E0C600F4194C /* Order+CoreDataClass.swift */,
+				4158273A2412E0C600F4194C /* Order+CoreDataProperties.swift */,
 				415827212412DA5700F4194C /* MenuOrders */,
 				415827202412DA5700F4194C /* Products */,
 			);
@@ -149,9 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4158273C2412E0C600F4194C /* Order+CoreDataProperties.swift in Sources */,
 				415827282412DA5700F4194C /* MenuOrders.xcdatamodeld in Sources */,
 				415827232412DA5700F4194C /* AppDelegate.swift in Sources */,
 				4158272A2412DA5700F4194C /* ContentView.swift in Sources */,
+				4158273B2412E0C600F4194C /* Order+CoreDataClass.swift in Sources */,
 				415827252412DA5700F4194C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

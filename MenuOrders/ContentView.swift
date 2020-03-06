@@ -10,7 +10,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List {
+                Text("Sample Order")
+            }
+            .navigationBarTitle("My Orders")
+            .navigationBarItems(trailing: Button(action: {print("Open order sheet")}, label:
+                {
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .frame(width: 32, height: 32, alignment: .center)
+            }))
+        }
     }
 }
 
