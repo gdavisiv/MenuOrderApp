@@ -16,6 +16,7 @@
 		415827322412DA5800F4194C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 415827302412DA5800F4194C /* LaunchScreen.storyboard */; };
 		4158273B2412E0C600F4194C /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415827392412E0C600F4194C /* Order+CoreDataClass.swift */; };
 		4158273C2412E0C600F4194C /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158273A2412E0C600F4194C /* Order+CoreDataProperties.swift */; };
+		4158273E2412EC9900F4194C /* OrderSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158273D2412EC9900F4194C /* OrderSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		415827332412DA5800F4194C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		415827392412E0C600F4194C /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4158273A2412E0C600F4194C /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4158273D2412EC9900F4194C /* OrderSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				415827222412DA5700F4194C /* AppDelegate.swift */,
 				415827242412DA5700F4194C /* SceneDelegate.swift */,
 				415827292412DA5700F4194C /* ContentView.swift */,
+				4158273D2412EC9900F4194C /* OrderSheet.swift */,
 				4158272B2412DA5800F4194C /* Assets.xcassets */,
 				415827302412DA5800F4194C /* LaunchScreen.storyboard */,
 				415827332412DA5800F4194C /* Info.plist */,
@@ -160,6 +163,7 @@
 				415827232412DA5700F4194C /* AppDelegate.swift in Sources */,
 				4158272A2412DA5700F4194C /* ContentView.swift in Sources */,
 				4158273B2412E0C600F4194C /* Order+CoreDataClass.swift in Sources */,
+				4158273E2412EC9900F4194C /* OrderSheet.swift in Sources */,
 				415827252412DA5700F4194C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
