@@ -14,9 +14,10 @@ struct ContentView: View {
     //scene function, the managed object context should be accessible globally by all views by using the
     //corresponding environment property. However, doing this inside popover views like our OrderSheet won’t work
     //properly. What we have to do is to pass the managedObjectContext that gets initialised inside the scene
-    //function downwards to our OrderSheet. Thus, we have to use the @Environment property inside our ContentView,
-    //too …
-    @Environment(\.managedObjectContext) var mangedObjectContext
+    //function downwards to our OrderSheet. Thus, we have to use the @Environment property inside our ContentView
+    //And also add it below in the .sheet modifier too …
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @State var showOrderSheet = false
     var body: some View {
         NavigationView {
@@ -31,6 +32,7 @@ struct ContentView: View {
                     .frame(width: 32, height: 32, alignment: .center)
             }))
                 .sheet(isPresented: $showOrderSheet) {
+                    //Pass it to the OrderSheet inside the .sheet modifier:
                     OrderSheet().environment(\.managedObjectContext, self.managedObjectContext)
             }
         }
