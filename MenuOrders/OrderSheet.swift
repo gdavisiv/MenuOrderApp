@@ -18,6 +18,9 @@ struct OrderSheet: View {
     //too …
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    //We want to close the OrderSheet modal view. We can do this by inserting the following environment property
+    @Environment (\.presentationMode) var presentationMode
+    
     let pizzaTypes = ["G", "J", "Liz", "Chica"]
     
     @State var selectedPizzaIndex = 1
@@ -41,9 +44,26 @@ struct OrderSheet: View {
                     TextField("Table Number", text: $tableNumber)
                         .keyboardType(.numberPad)
                 }
-                
+                //create an Order instance inside our “Add order Button”.
+                //But first, we want to make sure, that the tableNumber String
+                //is not empty by using a guard statement.
                 Button(action: {
-                    print("Save the Order!")
+                    guard self.tableNumber != "" else {return}
+                    let newOrder = Order(context: self.managedObjectContext)
+                            newOrder.pizzaType = self.pizzaTypes[self.selectedPizzaIndex]
+                            newOrder.orderStatus = .pending
+                            newOrder.tableNumber = self.tableNumber
+                            newOrder.numberOfSlices = Int16(self.numberOfSlices)
+                            newOrder.id = UUID()
+                    //Try to save the created order, if that fails then we print the following error code
+                    do {
+                        try self.managedObjectContext.save()
+                        print("Order Saved!")
+                        //This will close the modal view
+                        self.presentationMode.wrappedValue.dismiss()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                 }) {
                     Text("Add Order")
                 }.navigationBarTitle("Add Order")
