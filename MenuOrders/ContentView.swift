@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  MenuOrders
 //
-//  Created by user163072 on 3/6/20.
+//  Created by George Davis IV on 3/6/20.
 //  Copyright © 2020 George Davis IV. All rights reserved.
 //
 //https://blckbirds.com/post/core-data-and-swiftui/
@@ -18,6 +18,12 @@ struct ContentView: View {
     //And also add it below in the .sheet modifier too …
     @Environment(\.managedObjectContext) var managedObjectContext
     
+    //
+    @FetchRequest(entity: Order.entity(),
+                  sortDescriptors: [],
+                  predicate: NSPredicate(format: "status !=%$", Status.completed.rawValue))
+    var orders: FetchedResults<Order>
+    
     @State var showOrderSheet = false
     var body: some View {
         NavigationView {
@@ -31,7 +37,7 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 32, height: 32, alignment: .center)
             }))
-                .sheet(isPresented: $showOrderSheet) {
+            .sheet(isPresented: $showOrderSheet) {
                     //Pass it to the OrderSheet inside the .sheet modifier:
                     OrderSheet().environment(\.managedObjectContext, self.managedObjectContext)
             }
