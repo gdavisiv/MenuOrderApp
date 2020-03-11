@@ -21,14 +21,32 @@ struct ContentView: View {
     //
     @FetchRequest(entity: Order.entity(),
                   sortDescriptors: [],
-                  predicate: NSPredicate(format: "status !=%$", Status.completed.rawValue))
+                  predicate: NSPredicate(format: "status !=%@", Status.completed.rawValue))
+    
     var orders: FetchedResults<Order>
     
     @State var showOrderSheet = false
+    
     var body: some View {
         NavigationView {
             List {
-                Text("Sample Order")
+                //Displays the fetched data inside our list
+                //Use the ForEach loop inside the list instead of inserting the orders data set in the list
+                ForEach(orders) { order in
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("\(order.pizzaType) - \(order.numberOfSlices) slices")
+                                .font(.headline)
+                            Text("Table \(order.tableNumber)")
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                        Button(action: {print("Update Order")}) {
+                            Text(order.orderStatus == .pending ? "Prepare" : "Complete")
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
             }
             .navigationBarTitle("My Orders")
             .navigationBarItems(trailing: Button(action: {self.showOrderSheet = true}, label:
@@ -40,7 +58,6 @@ struct ContentView: View {
             .sheet(isPresented: $showOrderSheet) {
                     //Pass it to the OrderSheet inside the .sheet modifier:
                     OrderSheet().environment(\.managedObjectContext, self.managedObjectContext)
-            }
         }
     }
 }
@@ -48,5 +65,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        }
     }
 }

@@ -18,11 +18,13 @@ extension Order: Identifiable {
     }
     
     //Removed the Question mark from the string type properties since I don't want them to be optionals
+    
+    @NSManaged public var id: UUID?
     @NSManaged public var numberOfSlices: Int16
     @NSManaged public var pizzaType: String
     @NSManaged public var status: String
     @NSManaged public var tableNumber: String
-    @NSManaged public var id: UUID?
+
     
     var orderStatus: Status {
         set {status = newValue.rawValue}
