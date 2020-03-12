@@ -41,7 +41,8 @@ struct ContentView: View {
                                 .font(.subheadline)
                         }
                         Spacer()
-                        Button(action: {print("Update Order")}) {
+                        //call the updateOrder function from our row’s button with passing the particular order instance:
+                        Button(action: {self.updateOrder(order: order)}) {
                             Text(order.orderStatus == .pending ? "Prepare" : "Complete")
                                 .foregroundColor(.blue)
                         }
@@ -61,6 +62,16 @@ struct ContentView: View {
         }
     }
 }
+    //When the user taps on the button we want to update the status to preparing and
+    //the button should read “Complete”. When the user taps again, we want the order’s
+    //status to be completed, which causes the @FetchRequest to filter the order out
+    func updateOrder(order: Order) {
+    let newStatus = order.orderStatus == .pending ? Status.preparing : .completed
+        managedObjectContext.performAndWait {
+            order.orderStatus = newStatus
+    try? managedObjectContext.save()
+        }
+    }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
