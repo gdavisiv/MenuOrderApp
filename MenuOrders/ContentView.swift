@@ -48,7 +48,16 @@ struct ContentView: View {
                         }
                     }
                 }
+                //to delete the particular object from the managed object context, and then,
+                //since the @FetchRequest will automatically detect that the object was deleted,
+                //it will update our ContentView accordingly and remove the row
+                //from the table with a nice default animation.
+                .onDelete { indexSet in
+                    for index in indexSet {
+                        self.managedObjectContext.delete(self.orders[index])
+                }
             }
+        }
             .navigationBarTitle("My Orders")
             .navigationBarItems(trailing: Button(action: {self.showOrderSheet = true}, label:
                 {
